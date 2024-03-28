@@ -77,10 +77,10 @@ int main(int argc, char *argv[])
     getopt_add_bool(gopt, 0, "csharp",     0, "Emit C#.NET code");
     setup_csharp_options(gopt);
 
-    getopt_add_spacer(gopt, "**** Go options ****");
-    getopt_add_bool(gopt, 'g', "go",       0, "Emit Go code");
-    setup_go_options(gopt);
-    // clang-format on
+    // getopt_add_spacer(gopt, "**** Go options ****");
+    // getopt_add_bool(gopt, 'g', "go",       0, "Emit Go code");
+    // setup_go_options(gopt);
+    // // clang-format on
 
     if (!getopt_parse(gopt, argc, argv, 1) || getopt_get_bool(gopt, "help")) {
         printf("Usage: %s [options] <input files>\n\n", argv[0]);
@@ -166,13 +166,13 @@ int main(int argc, char *argv[])
         }
     }
 
-    if (getopt_get_bool(gopt, "go")) {
-        did_something = 1;
-        if (emit_go(lcm)) {
-            printf("An error occurred while emitting Go code.\n");
-            res = -1;
-        }
-    }
+    // if (getopt_get_bool(gopt, "go")) {
+    //     did_something = 1;
+    //     if (emit_go(lcm)) {
+    //         printf("An error occurred while emitting Go code.\n");
+    //         res = -1;
+    //     }
+    // }
 
     if (did_something == 0) {
         printf("No actions specified. Try --help.\n");
